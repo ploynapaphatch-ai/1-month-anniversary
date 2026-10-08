@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 1 Month 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Tahoma",sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#fff6fb,#f6f0ff,#eef7ff);
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#6b5b74;
+}
+
+/* =========================
+   หน้ารหัสผ่าน
+========================= */
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#fff0f6,#f3eaff,#eaf7ff);
+    padding:20px;
+}
+
+.password-box{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.92);
+    padding:40px 30px;
+    border-radius:30px;
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.lock{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.password-box h1{
+    color:#d68bb1;
+    margin-bottom:12px;
+}
+
+.password-box p{
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.password-input{
+    width:100%;
+    padding:14px 18px;
+    border:2px solid #f2c5d7;
+    border-radius:30px;
+    outline:none;
+    text-align:center;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+.password-input:focus{
+    border-color:#dca1bd;
+}
+
+.enter-btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    border-radius:30px;
+    background:#f3abc4;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.enter-btn:hover{
+    transform:scale(1.03);
+    background:#e79db8;
+}
+
+.error{
+    color:#df789d;
+    margin-top:15px;
+    display:none;
+}
+
+/* =========================
+   เว็บหลัก
+========================= */
+
+#mainWebsite{
+    display:none;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    margin:25px 0;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+h1{
+    color:#d68bb1;
+    margin-bottom:15px;
+}
+
+h2{
+    color:#c49ad9;
+    margin-bottom:10px;
+}
+
+/* =========================
+   ปุ่ม
+========================= */
+
+button{
+    background:#f7b6c8;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#e79db4;
+}
+
+/* =========================
+   กล่องของขวัญ
+========================= */
+
+.gift{
+    font-size:90px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.gift:hover{
+    transform:scale(1.1) rotate(10deg);
+}
+
+/* =========================
+   จดหมาย
+========================= */
+
+.letter{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    background:#fff8fc;
+    border-radius:15px;
+    line-height:1.8;
+    animation:openLetter 0.6s ease;
+}
+
+@keyframes openLetter{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   การ์ดพลิก
+========================= */
+
+.flip-box{
+    width:220px;
+    height:150px;
+    perspective:1000px;
+    margin:20px auto;
+}
+
+.flip-inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transition:0.8s;
+    transform-style:preserve-3d;
+}
+
+.flip-box:hover .flip-inner{
+    transform:rotateY(180deg);
+}
+
+.front,
+.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+    backface-visibility:hidden;
+}
+
+.front{
+    background:#ffd6e7;
+}
+
+.back{
+    background:#cdb4db;
+    color:white;
+    transform:rotateY(180deg);
+}
+
+/* =========================
+   กล่องข้อความพิเศษ
+========================= */
+
+.special-message{
+    padding:25px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#fff0f6,#f3eaff);
+    line-height:1.8;
+}
+
+/* =========================
+   หัวใจลอย
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff8ec7;
+    animation:float 6s linear forwards;
+    pointer-events:none;
+    z-index:10000;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+footer{
+    margin:40px 0;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     หน้ารหัสผ่าน
+========================= -->
+
+<div id="passwordScreen">
+
+    <div class="password-box">
+
+        <div class="lock">🔐</div>
+
+        <h1>มีบางอย่างรออยู่ข้างใน</h1>
+
+        <p>
+            รหัสผ่านคือ <b>วันครบรอบของเรา</b><br>
+            วันที่ <b>6 กันยายน 2026</b>
+        </p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            class="password-input"
+            placeholder="กรอกรหัสผ่าน"
+        >
+
+        <button class="enter-btn" onclick="checkPassword()">
+            เปิดเว็บ 💗
+        </button>
+
+        <p id="errorMessage" class="error">
+            ยังไม่ถูกนะ ลองใหม่อีกครั้ง 💕
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     เว็บหลัก
+========================= -->
+
+<div id="mainWebsite">
+
+<div id="hearts"></div>
+
+<div class="container">
+
+    <!-- กล่องของขวัญ -->
+
+    <div class="card">
+
+        <div class="gift" onclick="showGift()">
+            🎁
+        </div>
+
+        <h1>
+            มีเซอร์ไพรส์เล็ก ๆ ซ่อนอยู่
+        </h1>
+
+        <p>
+            กดที่กล่องของขวัญได้เลย 💗
+        </p>
+
+    </div>
+
+
+    <!-- เนื้อหาที่ซ่อน -->
+
+    <div id="content" style="display:none;">
+
+        <!-- ครบรอบ -->
+
+        <div class="card">
+
+            <h1>
+                Happy 1 Month 💕
+            </h1>
+
+            <p>
+                06 • 09 • 2026
+            </p>
+
+            <br>
+
+            <div class="special-message">
+
+                ขอบคุณที่เข้ามาเป็นส่วนหนึ่ง
+                ของช่วงเวลาที่ดีนะ ✨
+
+                <br><br>
+
+                หวังว่าเราจะมีความทรงจำดี ๆ
+                เพิ่มขึ้นอีกเรื่อย ๆ 💗
+
+            </div>
+
+        </div>
+
+
+        <!-- จดหมาย -->
+
+        <div class="card">
+
+            <h2>
+                💌 จดหมายถึงเธอ
+            </h2>
+
+            <button onclick="openLetter()">
+                เปิดจดหมาย
+            </button>
+
+            <div class="letter" id="letter">
+
+                ขอบคุณสำหรับช่วงเวลาที่ผ่านมา 💗
+
+                <br><br>
+
+                ไม่ว่าจะเป็นวันที่ดี
+                หรือวันที่เหนื่อย
+
+                <br>
+
+                การมีเธออยู่ทำให้หลาย ๆ วัน
+                พิเศษขึ้น
+
+                <br><br>
+
+                และหวังว่าเราจะได้สร้าง
+                ความทรงจำดี ๆ
+                ไปด้วยกันอีกเยอะเลย 🌷
+
+            </div>
+
+        </div>
+
+
+        <!-- การ์ดพลิก -->
+
+        <div class="card">
+
+            <h2>
+                🌷 ข้อความเล็ก ๆ
+            </h2>
+
+            <div class="flip-box">
+
+                <div class="flip-inner">
+
+                    <div class="front">
+                        กดดู 💕
+                    </div>
+
+                    <div class="back">
+                        ขอบคุณที่อยู่ข้างกันนะ
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="flip-box">
+
+                <div class="flip-inner">
+
+                    <div class="front">
+                        กดดู ✨
+                    </div>
+
+                    <div class="back">
+                        ขอให้มีรอยยิ้มเยอะ ๆ
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ปุ่มเซอร์ไพรส์ -->
+
+        <div class="card">
+
+            <h2>
+                🎀 เซอร์ไพรส์สุดท้าย
+            </h2>
+
+            <p style="margin-bottom:20px;">
+                มีอะไรบางอย่างอยากบอก...
+            </p>
+
+            <button onclick="secret()">
+                กดดูเซอร์ไพรส์ 💗
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        made with 💗
+    </footer>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   ตรวจรหัสผ่าน
+========================= */
+
+function checkPassword(){
+
+    const password =
+        document.getElementById("passwordInput").value;
+
+    if(password === "06092026"){
+
+        document.getElementById("passwordScreen").style.display="none";
+
+        document.getElementById("mainWebsite").style.display="block";
+
+        createHearts();
+
+    }else{
+
+        document.getElementById("errorMessage").style.display="block";
+
+    }
+
+}
+
+
+/* กด Enter เพื่อเข้าสู่เว็บ */
+
+document
+.getElementById("passwordInput")
+.addEventListener("keypress",function(event){
+
+    if(event.key === "Enter"){
+        checkPassword();
+    }
+
+});
+
+
+/* =========================
+   เปิดกล่อง
+========================= */
+
+function showGift(){
+
+    document.getElementById("content").style.display="block";
+
+    createHearts();
+
+}
+
+
+/* =========================
+   เปิดจดหมาย
+========================= */
+
+function openLetter(){
+
+    document.getElementById("letter").style.display="block";
+
+}
+
+
+/* =========================
+   เซอร์ไพรส์สุดท้าย
+========================= */
+
+function secret(){
+
+    alert(
+        "เซอร์ไพรส์! 💗\n\nขอบคุณสำหรับเดือนแรกของเรานะ\nหวังว่าจะมีเดือนต่อ ๆ ไปอีกเยอะเลย"
+    );
+
+    createHearts();
+
+}
+
+
+/* =========================
+   สร้างหัวใจ
+========================= */
+
+function createHearts(){
+
+    for(let i=0;i<40;i++){
+
+        let heart =
+            document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML="💗";
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.fontSize =
+            (15+Math.random()*25)+"px";
+
+        heart.style.animationDuration =
+            (3+Math.random()*4)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },7000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
